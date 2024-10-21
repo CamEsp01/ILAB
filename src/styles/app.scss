@@ -1,0 +1,215 @@
+:root{
+    --color: #000000;
+    
+    --font-big: 27px;
+    --font-med: 41px;
+    --font-par: 18px;
+}
+
+html, body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: auto 0;
+    font-size: var(--font-par);
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.5;
+    // min-height: 100%;
+    background: linear-gradient(to bottom right, #9DAFB7, #FFFFFF);
+   
+}
+
+.section{
+    margin: 108px 0 108px 0;
+}
+
+// TITRES 
+
+.title{
+
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    line-height: 120%;
+
+    &--big{
+        font-size: var(--font-big);
+        text-align: center;
+        margin: 108px 0;
+    }
+
+    &--med{
+        font-size: var(--font-med);
+        margin: 0 0 0 18px;
+    }
+}
+
+p{
+    margin: 54px 36px;
+    line-height: 180%;
+}
+
+// SWIPER
+
+.swiper {
+    position: relative;
+    margin: 54px 0 0 0;
+
+    &-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 295px;
+            height: 194px;
+            object-fit: cover;
+          }
+    }
+
+    &-button-next,
+    &-button-prev{
+        position: absolute; 
+        top: 50%; 
+        transform: translateY(-50%); 
+        z-index: 10; 
+
+        &::after {
+            color: var(--color);
+          }
+    }
+    
+    .caption{
+        text-align: center;
+    }
+}
+
+// IMAGES
+
+.img__vue{
+    width: 295px;
+    height: 194px;
+    border-radius: 20px;
+    margin-left: 18px;
+}
+
+
+// SCROLL HORIZONTAL
+
+.scrolling{
+	display: flex;
+	overflow-x: scroll;
+	position: relative;
+    margin-top: 54px;
+
+    &::-webkit-scrollbar {
+        display: none; 
+    }
+}
+
+// CLICK SECTION INTERACTION
+
+.accordion {
+    display: flex;
+    flex-direction: column; /* Les éléments s'affichent en colonne */
+
+    &-item {
+        width: 100%; /* Prend toute la largeur */
+        border-bottom: 1px solid #111; /* Bord inférieur pour chaque item */
+    }
+
+    &-title {
+        display: flex;
+        align-items: center; /* Centre verticalement le texte et les SVG */
+        justify-content: space-between; /* Espace entre le texte et le SVG */
+        background-color: transparent;
+        border: none;
+        padding: 15px;
+        font-size: var(--font-big);
+        font-weight: bold;
+        cursor: pointer;
+        outline: none;
+        width: 100%;
+
+        & svg {
+            width: 30px; /* Ajustez la largeur de votre SVG ici */
+            height: 30px; /* Ajustez la hauteur de votre SVG ici */
+            margin-left: auto; /* Pousse le SVG à droite */
+            align-self: center; /* Assurez-vous que le SVG est centré verticalement */
+        }
+
+        & .circle {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: transparent;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+
+            &.hidden {
+                display: none; /* Masque le cercle */
+            }
+        }
+
+        &:hover .circle {
+            background-color: #000;
+        }
+
+        &.active {
+            background-color: transparent;
+        }
+
+        &.active .circle {
+            background-color: #000;
+        }
+    }
+
+    &-content {
+        max-height: 0; // Initialement masqué
+        overflow: hidden; // Masque le débordement
+        background-color: transparent;
+        font-size: var(--font-par);
+        line-height: 180%;
+        padding: 0 36px; // Pas de padding vertical au début
+        transition: max-height 0.4s ease, padding 0.4s ease; // Transition de la hauteur
+        
+        & p {
+            margin: 0;
+        }
+    }
+
+    &-title.active + &-content {
+        max-height: 500px; // Ajuste cette valeur selon le contenu maximum attendu
+        padding: 18px 36px; // Ajoute du padding lors de l'ouverture
+    }
+
+    &-bar {
+        height: 1px;
+        background-color: black; // Couleur de la barre
+        margin-top: 10px; // Espace au-dessus de la barre
+        display: none; // Masqué par défaut
+        width: 100%; // S'assurer que la barre prend toute la largeur
+    }
+}
+
+
+@media (max-width: 767px) {}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 1200px) {}
+
+
+
+
+
+
+
